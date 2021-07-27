@@ -1,4 +1,5 @@
 import Logo from '../../../theme/Logo';
+import Text from '../../foundation/Text';
 import { Button } from '../Button';
 import { MenuWrapper } from './styles/MenuWrapper';
 
@@ -28,7 +29,9 @@ export default function Menu() {
       <MenuWrapper.CentralSide>
         {links.map(link => (
           <li key={link.text}>
-            <a href={link.url}>{link.text}</a>
+            <Text tag='a' variant='smallestException' href={link.url}>
+              {link.text}
+            </Text>
           </li>
         ))}
       </MenuWrapper.CentralSide>
