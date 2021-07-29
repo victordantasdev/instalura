@@ -1,35 +1,32 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import { propToStyle } from '../../../theme/utils/propToStyle';
+import propToStyle from '../../../theme/utils/propToStyle';
 
 export const TextStyleVariantsMap = {
   smallestException: css`
-    font-size: ${({ theme }) =>
-      theme.typographyVariants.smallestException.fontSize};
-    font-weight: ${({ theme }) =>
-      theme.typographyVariants.smallestException.fontWeight};
-    line-height: ${({ theme }) =>
-      theme.typographyVariants.smallestException.fontHeight};
+    font-size: ${({ theme }) => theme.typographyVariants.smallestException.fontSize};
+    font-weight: ${({ theme }) => theme.typographyVariants.smallestException.fontWeight};
+    line-height: ${({ theme }) => theme.typographyVariants.smallestException.fontHeight};
   `,
 
   paragraph1: css`
     font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontSize};
-    font-weight: ${({ theme }) =>
-      theme.typographyVariants.paragraph1.fontWeight};
-    line-height: ${({ theme }) =>
-      theme.typographyVariants.paragraph1.fontHeight};
+    font-weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontWeight};
+    line-height: ${({ theme }) => theme.typographyVariants.paragraph1.fontHeight};
   `,
 };
 
 const TextBase = styled.span`
   ${({ variant }) => TextStyleVariantsMap[variant]}
-  /* ${({ textAlign }) => ({ textAlign })} */
-  /* ${props => propToStyle('textAlign', props)} */
   ${propToStyle('textAlign')}
 `;
 
-export default function Text({ tag, variant, children, ...props }) {
+export default function Text({
+  tag, variant, children, ...props
+}) {
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <TextBase variant={variant} as={tag} {...props}>
       {children}
     </TextBase>
@@ -37,8 +34,8 @@ export default function Text({ tag, variant, children, ...props }) {
 }
 
 Text.propTypes = {
-  tag: PropTypes.string.isRequired,
-  variant: PropTypes.string.isRequired,
+  tag: PropTypes.string,
+  variant: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 
