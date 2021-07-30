@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import Menu from '../src/components/commons/Menu';
 import Footer from '../src/components/commons/Footer';
 import Text from '../src/components/foundation/Text';
@@ -6,7 +7,10 @@ import Button from '../src/components/commons/Button';
 import Grid from '../src/components/foundation/layout/Grid';
 import Box from '../src/components/foundation/layout/Box';
 
-export default function Home() {
+// eslint-disable-next-line react/prop-types
+export default function Home({ toggleTheme }) {
+  const { colorTheme } = useContext(ThemeContext);
+
   return (
     <Box
       flex={1}
@@ -14,11 +18,15 @@ export default function Home() {
       flexWrap="wrap"
       flexDirection="column"
       justifyContent="space-between"
-      backgroundImage="url(/images/bubbles.svg)"
+      backgroundImage={
+        colorTheme.title === 'light'
+          ? 'url(/images/bubbles.svg)'
+          : 'url(/images/bubbles_dark.svg)'
+      }
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
-      <Menu />
+      <Menu toggleTheme={toggleTheme} />
 
       <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
         <Grid.Row>
@@ -56,7 +64,7 @@ export default function Home() {
             </Text>
 
             <Button
-              variant="primary.main"
+              variant="primary"
               margin={{
                 xs: 'auto',
                 md: 'initial',

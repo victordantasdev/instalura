@@ -1,8 +1,11 @@
-import React from 'react';
-import Logo from '../../../theme/Logo';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+import Brightness7Icon from '@material-ui/icons/Brightness7';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Text from '../../foundation/Text';
 import Button from '../Button';
 import MenuWrapper from './styles/MenuWrapper';
+import { LogoDark, LogoLight } from '../../../theme/Logos';
 
 const links = [
   {
@@ -21,11 +24,14 @@ const links = [
   },
 ];
 
-export default function Menu() {
+// eslint-disable-next-line react/prop-types
+export default function Menu({ toggleTheme }) {
+  const { colorTheme } = useContext(ThemeContext);
+
   return (
     <MenuWrapper>
       <MenuWrapper.LeftSide>
-        <Logo />
+        {colorTheme.title === 'light' ? <LogoLight /> : <LogoDark />}
       </MenuWrapper.LeftSide>
       <MenuWrapper.CentralSide>
         {links.map((link) => (
@@ -37,10 +43,18 @@ export default function Menu() {
         ))}
       </MenuWrapper.CentralSide>
       <MenuWrapper.RightSide>
-        <Button ghost variant="secondary.main">
-          Entrar
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+        <Button
+          ghost
+          variant="primary"
+          onClick={toggleTheme}
+        >
+          {colorTheme.title === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
         </Button>
-        <Button variant="primary.main">Cadastrar</Button>
+
+        <Button ghost variant="secondary">Entrar</Button>
+
+        <Button variant="primary">Cadastrar</Button>
       </MenuWrapper.RightSide>
     </MenuWrapper>
   );

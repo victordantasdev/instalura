@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
-import theme from '../src/theme';
+import theme, { colors } from '../src/theme';
 import GlobalStyle from '../src/theme/GlobalStyle';
 
 // eslint-disable-next-line react/prop-types
 export default function App({ Component, pageProps }) {
+  const [colorTheme, setColorTheme] = useState(colors.modes.dark);
+
+  const toggleTheme = () => {
+    setColorTheme(colorTheme.title === 'light' ? colors.modes.dark : colors.modes.light);
+  };
+
   return (
     <>
       <Head>
@@ -20,10 +26,10 @@ export default function App({ Component, pageProps }) {
 
         <title>Instalura</title>
       </Head>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={{ theme, colorTheme }}>
         <GlobalStyle />
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Component {...pageProps} />
+        <Component toggleTheme={toggleTheme} {...pageProps} />
       </ThemeProvider>
     </>
   );

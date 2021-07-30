@@ -90,8 +90,8 @@ MenuWrapper.CentralSide = styled.div`
   })}
     &:hover,
     &:focus {
-      font-weight: 500;
-      color: #070c0e;
+      /* font-weight: 500; */
+      color: ${({ theme }) => theme.colorTheme.background.contrastText};
     }
   }
 `;
