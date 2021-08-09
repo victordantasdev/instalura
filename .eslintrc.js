@@ -20,5 +20,6 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     indent: [2, 2, { SwitchCase: 1 }],
+    'import/prefer-default-export': 'off',
   },
 };

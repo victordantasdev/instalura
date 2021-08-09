@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import Menu from '../src/components/commons/Menu';
 import Footer from '../src/components/commons/Footer';
@@ -6,10 +6,12 @@ import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
 import Grid from '../src/components/foundation/layout/Grid';
 import Box from '../src/components/foundation/layout/Box';
+import Modal from '../src/components/commons/Modal';
 
 // eslint-disable-next-line react/prop-types
 export default function Home({ toggleTheme }) {
   const { colorTheme } = useContext(ThemeContext);
+  const [isModalOpen, setModalState] = useState(true);
 
   return (
     <Box
@@ -26,6 +28,26 @@ export default function Home({ toggleTheme }) {
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
+      {/*
+        [SOLID]
+        S = Single Responsability
+        O = Open Closed
+        L = Liskov Substitution
+        I = Interface Segregation
+        D = Dependency Inversion
+      */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => { setModalState(false); }}
+      >
+        {(propsDoModal) => (
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          <Box backgroundColor="white" {...propsDoModal}>
+            <div>Nosso conteúdo pro modal</div>
+          </Box>
+        )}
+      </Modal>
+
       <Menu toggleTheme={toggleTheme} />
 
       <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
@@ -64,12 +86,13 @@ export default function Home({ toggleTheme }) {
             </Text>
 
             <Button
-              variant="primary"
               margin={{
                 xs: 'auto',
                 md: 'initial',
               }}
+              variant="primary"
               display="block"
+              onClick={() => { setModalState(!isModalOpen); }}
             >
               Cadastrar
             </Button>
