@@ -11,7 +11,7 @@ import Modal from '../src/components/commons/Modal';
 // eslint-disable-next-line react/prop-types
 export default function Home({ toggleTheme }) {
   const { colorTheme } = useContext(ThemeContext);
-  const [isModalOpen, setModalState] = useState(true);
+  const [isModalOpen, setModalState] = useState(false);
 
   return (
     <Box
@@ -42,7 +42,7 @@ export default function Home({ toggleTheme }) {
       >
         {(propsDoModal) => (
           <Box
-            backgroundColor="white"
+            variant="borders"
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...propsDoModal}
           >
