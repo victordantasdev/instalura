@@ -6,7 +6,7 @@ import GlobalStyle from '../src/theme/GlobalStyle';
 
 // eslint-disable-next-line react/prop-types
 export default function App({ Component, pageProps }) {
-  const [colorTheme, setColorTheme] = useState(colors.modes.dark);
+  const [colorTheme, setColorTheme] = useState(colors.modes.light);
 
   const toggleTheme = () => {
     setColorTheme(colorTheme.title === 'light' ? colors.modes.dark : colors.modes.light);
