@@ -7,6 +7,7 @@ import Button from '../src/components/commons/Button';
 import Grid from '../src/components/foundation/layout/Grid';
 import Box from '../src/components/foundation/layout/Box';
 import Modal from '../src/components/commons/Modal';
+import FormCadastro from '../src/components/patterns/FormCadastro';
 
 // eslint-disable-next-line react/prop-types
 export default function Home({ toggleTheme }) {
@@ -41,13 +42,7 @@ export default function Home({ toggleTheme }) {
         onClose={() => { setModalState(false); }}
       >
         {(propsDoModal) => (
-          <Box
-            variant="borders"
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...propsDoModal}
-          >
-            <div>Nosso conteúdo pro modal</div>
-          </Box>
+          <FormCadastro propsDoModal={propsDoModal} />
         )}
       </Modal>
 

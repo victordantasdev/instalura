@@ -17,6 +17,7 @@ const ModalWrapper = styled.div`
   overflow: scroll;
   transition: .3s;
   z-index: 100;
+  overflow: hidden;
   
   ${({ isOpen }) => {
     if (isOpen) {
@@ -50,7 +51,7 @@ function Modal({ isOpen, onClose, children }) {
             x: 0,
           },
           closed: {
-            x: '-100%',
+            x: '100%',
           },
         }}
         animate={isOpen ? 'open' : 'closed'}
