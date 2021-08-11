@@ -36,11 +36,15 @@ const Button = styled.button`
     `,
   })}
 
-  /* &:hover,
-  &:focus {
-    opacity: 0.5;
-  } */
-
+  ${({ fullWidth }) => fullWidth && css`
+    width: 100%;
+  `};
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.2;
+  }
+  
   &:hover {
     opacity: 0.5;
   }

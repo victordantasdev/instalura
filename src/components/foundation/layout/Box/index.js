@@ -11,6 +11,8 @@ const Box = styled.div`
   ${propToStyle('backgroundImage')};
   ${propToStyle('backgroundRepeat')};
   ${propToStyle('backgroundPosition')};
+  ${propToStyle('boxShadow')}
+  ${propToStyle('padding')}
 
   color: ${({ theme, variant }) => get(theme, `colorTheme.${variant}.contrastText`)};
   background-color: ${({ theme, variant }) => get(theme, `colorTheme.${variant}.color`)};
