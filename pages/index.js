@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import Menu from '../src/components/commons/Menu';
 import Footer from '../src/components/commons/Footer';
