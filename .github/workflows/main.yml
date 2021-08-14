@@ -2,11 +2,11 @@
 
 name: CI
 
-# Controls when the workflow will run
+# Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   pull_request:
-    branches: [ opened, synchronize ]
+    types: [ opened, synchronize ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,15 +18,19 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # [[AJUSTES GERAIS]]
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: '14.17.0'
+          node-version: '14.15.0'
+      ##################################
+      ##################################
 
       # Runs a single command using the runners shell
-      - name: Node version!
+      - name: Node Version
         run: node -v
-
-      - name: Run linter!
+      - name: Install de dependencias
+        run: yarn install
+      - name: Roda o Linter!
         run: yarn lint
