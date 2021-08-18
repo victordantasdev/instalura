@@ -42,7 +42,7 @@ export default function Home({ toggleTheme }) {
         onClose={() => { setModalState(false); }}
       >
         {(propsDoModal) => (
-          <FormCadastro propsDoModal={propsDoModal} />
+          <FormCadastro propsDoModal={propsDoModal} setModalState={setModalState} />
         )}
       </Modal>
 
