@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import propToStyle from '../../../theme/utils/propToStyle';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
+import { Link } from '../../commons/Link';
 
 export const TextStyleVariantsMap = {
   smallestException: css`
@@ -42,11 +43,31 @@ const TextBase = styled.span`
 `;
 
 export default function Text({
-  tag, variant, children, ...props
+  tag,
+  variant,
+  children,
+  href,
+  ...props
 }) {
+  if (href) {
+    return (
+      <TextBase
+        as={Link}
+        variant={variant}
+        href={href}
+        {...props}
+      >
+        {children}
+      </TextBase>
+    );
+  }
+
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <TextBase variant={variant} as={tag} {...props}>
+    <TextBase
+      as={tag}
+      variant={variant}
+      {...props}
+    >
       {children}
     </TextBase>
   );
@@ -54,12 +75,14 @@ export default function Text({
 
 Text.propTypes = {
   tag: PropTypes.string,
+  href: PropTypes.string,
   variant: PropTypes.string,
   children: PropTypes.node,
 };
 
 Text.defaultProps = {
   tag: 'span',
+  href: '',
   variant: 'paragraph1',
   children: null,
 };

@@ -46,7 +46,7 @@ export default function Home({ toggleTheme }) {
         )}
       </Modal>
 
-      <Menu toggleTheme={toggleTheme} />
+      <Menu onCadastrarClick={() => setModalState(true)} toggleTheme={toggleTheme} />
 
       <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
         <Grid.Row>
