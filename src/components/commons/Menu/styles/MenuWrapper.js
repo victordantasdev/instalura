@@ -14,7 +14,7 @@ const MenuWrapper = styled.nav`
   ${breakpointsMedia({
     md: css`
       justify-content: flex-start;
-      margin-top: 32px;
+      margin-top: 0;
       margin-left: auto;
       margin-right: auto;
       width: 100%;
