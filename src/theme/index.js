@@ -62,7 +62,7 @@ export const colors = {
       },
 
       tertiary: {
-        color: '#FFFFFF',
+        color: '#D4D4D4',
         mainColor: '#D5D5D5',
       },
 

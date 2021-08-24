@@ -11,8 +11,16 @@ const Box = styled.div`
   ${propToStyle('backgroundImage')};
   ${propToStyle('backgroundRepeat')};
   ${propToStyle('backgroundPosition')};
-  ${propToStyle('boxShadow')}
-  ${propToStyle('padding')}
+  ${propToStyle('boxShadow')};
+  ${propToStyle('padding')};
+  ${propToStyle('width')}
+  ${propToStyle('listStyle')}
+  ${propToStyle('margin')}
+  ${propToStyle('marginLeft')}
+  ${propToStyle('marginTop')}
+  ${propToStyle('marginBottom')}
+  ${propToStyle('marginRight')}
+  ${({ theme, borderRadiusTheme }) => borderRadiusTheme && `border-radius: ${theme.borderRadius}`};
 
   color: ${({ theme, variant }) => get(theme, `colorTheme.${variant}.contrastText`)};
   background-color: ${({ theme, variant }) => get(theme, `colorTheme.${variant}.color`)};
