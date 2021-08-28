@@ -14,6 +14,7 @@ export default function WebsiteGlobalProvider({ children }) {
   return (
     <ThemeProvider theme={{ theme, colorTheme }}>
       <GlobalStyle />
+      {toggleTheme}
       {children}
     </ThemeProvider>
   );
