@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
 import Grid from '../src/components/foundation/layout/Grid';
-import WebsitePageWrapper, { WebsitePageContext } from '../src/components/wrappers/WebsitePage';
+import { WebsitePageContext } from '../src/components/wrappers/WebsitePage';
+import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
 function HomeScreen() {
   const websitePageContext = useContext(WebsitePageContext);
@@ -68,16 +69,10 @@ function HomeScreen() {
   );
 }
 
-// eslint-disable-next-line react/prop-types
-export default function Home({ toggleTheme }) {
-  return (
-    <WebsitePageWrapper
-      toggleTheme={toggleTheme}
-      seoProps={{
-        headTitle: 'Home',
-      }}
-    >
-      <HomeScreen />
-    </WebsitePageWrapper>
-  );
-}
+export default websitePageHOC(HomeScreen, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Home',
+    },
+  },
+});

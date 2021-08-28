@@ -1,10 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import FAQScreen from '../../src/components/screen/FAQScreen';
+import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
-export default function Faq({ toggleTheme, faqCategories }) {
+function FAQPage({ toggleTheme, faqCategories }) {
   return <FAQScreen faqCategories={faqCategories} toggleTheme={toggleTheme} />;
 }
+
+export default websitePageHOC(FAQPage, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'FAQ',
+    },
+  },
+});
 
 export async function getStaticProps() {
   const faqCategories = await fetch('https://instalura-api.vercel.app/api/content/faq')
@@ -18,8 +26,4 @@ export async function getStaticProps() {
   };
 }
 
-Faq.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  faqCategories: PropTypes.array.isRequired,
-  toggleTheme: PropTypes.func.isRequired,
-};
+FAQPage.propTypes = FAQScreen.propTypes;
