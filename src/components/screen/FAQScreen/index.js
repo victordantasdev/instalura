@@ -9,7 +9,7 @@ export default function FAQScreen({ faqCategories }) {
     <Box
       display="flex"
       flexDirection="column"
-      flex="1"
+      flex={1}
     >
 
       <Grid.Container style={{ flex: 1 }}>

@@ -18,7 +18,7 @@ const MenuWrapper = styled.nav`
       margin-left: auto;
       margin-right: auto;
       width: 100%;
-      padding: 0 16px;
+      padding: 32px 16px 0 16px;
       max-width: 768px;
     `,
     lg: css`
