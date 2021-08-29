@@ -37,7 +37,7 @@ export default function WebsitePageWrapper({
         display="flex"
         flexDirection="column"
         flexWrap="wrap"
-        justifyContent="space-around"
+        justifyContent="space-between"
         backgroundImage={
           colorTheme.title === 'light'
             ? 'url(/images/bubbles.svg)'
