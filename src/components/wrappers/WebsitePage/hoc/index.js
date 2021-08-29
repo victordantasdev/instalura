@@ -1,13 +1,20 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import WebsitePageWrapper from '..';
 import WebsiteGlobalProvider from '../provider';
 
-export default function websitePageHOC(PageComponent, { pageWrapperProps }) {
+export default function websitePageHOC(
+  PageComponent,
+  { pageWrapperProps } = { pageWrapperProps: {} },
+) {
   return (props) => (
     <WebsiteGlobalProvider>
-      {/* eslint-disable-next-line react/destructuring-assignment */}
-      <WebsitePageWrapper toggleTheme={props.toggleTheme} {...pageWrapperProps}>
+      <WebsitePageWrapper
+        toggleTheme={props.toggleTheme}
+        {...pageWrapperProps}
+        {...props.pageWrapperProps}
+      >
         <PageComponent {...props} />
       </WebsitePageWrapper>
     </WebsiteGlobalProvider>
