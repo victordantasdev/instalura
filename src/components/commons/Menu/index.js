@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
-import Brightness7Icon from '@material-ui/icons/Brightness7';
-import Brightness4Icon from '@material-ui/icons/Brightness4';
+import Switch from 'react-switch';
 import Text from '../../foundation/Text';
 import Button from '../Button';
 import MenuWrapper from './styles/MenuWrapper';
 import { LogoDark, LogoLight } from '../../../theme/Logos';
+import { Moon, Sun } from '../../../../public/icons/SwichIcons';
 
 const links = [
   {
@@ -26,7 +26,7 @@ const links = [
 ];
 
 // eslint-disable-next-line react/prop-types
-export default function Menu({ toggleTheme, onCadastrarClick }) {
+export default function Menu({ onCadastrarClick, toggleTheme }) {
   const { colorTheme } = useContext(ThemeContext);
 
   return (
@@ -44,14 +44,14 @@ export default function Menu({ toggleTheme, onCadastrarClick }) {
         ))}
       </MenuWrapper.CentralSide>
       <MenuWrapper.RightSide>
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
-        <Button
-          ghost
-          variant="primary"
-          onClick={toggleTheme}
-        >
-          {colorTheme.title === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-        </Button>
+        <Switch
+          onChange={toggleTheme}
+          checked={colorTheme.title === 'dark'}
+          checkedIcon={<Sun />}
+          uncheckedIcon={<Moon />}
+          onColor={colorTheme.primary.color}
+          offColor={colorTheme.primary.color}
+        />
 
         <Button ghost variant="secondary" href="/app/login">Entrar</Button>
 
@@ -63,4 +63,5 @@ export default function Menu({ toggleTheme, onCadastrarClick }) {
 
 Menu.propTypes = {
   onCadastrarClick: PropTypes.func.isRequired,
+  toggleTheme: PropTypes.func.isRequired,
 };

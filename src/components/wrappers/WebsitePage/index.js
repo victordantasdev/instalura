@@ -13,10 +13,10 @@ export const WebsitePageContext = createContext({
 });
 
 export default function WebsitePageWrapper({
-  toggleTheme,
   children,
   seoProps,
   menuProps,
+  toggleTheme,
 }) {
   const [isModalOpen, setModalState] = useState(false);
   const { colorTheme } = useContext(ThemeContext);
@@ -57,8 +57,8 @@ export default function WebsitePageWrapper({
 
         {menuProps.display && (
           <Menu
-            onCadastrarClick={() => setModalState(true)}
             toggleTheme={toggleTheme}
+            onCadastrarClick={() => setModalState(true)}
           />
         )}
 
@@ -78,7 +78,6 @@ WebsitePageWrapper.defaultProps = {
 };
 
 WebsitePageWrapper.propTypes = {
-  toggleTheme: PropTypes.func.isRequired,
   seoProps: PropTypes.shape({
     headTitle: PropTypes.string,
   }),
@@ -86,4 +85,5 @@ WebsitePageWrapper.propTypes = {
     display: PropTypes.bool,
   }),
   children: PropTypes.node.isRequired,
+  toggleTheme: PropTypes.func.isRequired,
 };

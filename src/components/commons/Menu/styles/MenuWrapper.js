@@ -100,6 +100,7 @@ MenuWrapper.RightSide = styled.div`
   padding: 0;
   margin: 0;
   display: flex;
+  align-items: center;
   flex: 1;
   order: 2;
   justify-content: flex-end;
