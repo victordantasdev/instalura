@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.theme.fontFamily};
     background-color: ${({ theme }) => theme.colorTheme.background.color};
     color: ${({ theme }) => theme.colorTheme.background.contrastText};
+    transition: all 0.2s ease-in-out;
   }
   
   /* Full height layout */
