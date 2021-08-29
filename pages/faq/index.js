@@ -15,7 +15,10 @@ export default websitePageHOC(FAQPage, {
 });
 
 export async function getStaticProps() {
-  const faqCategories = await fetch('https://instalura-api.vercel.app/api/content/faq')
+  const dev = process.env.NODE_ENV !== 'production';
+  const server = dev ? 'http://localhost:3000' : 'https://instalura-victordantasdev.vercel.app';
+
+  const faqCategories = await fetch(`${server}/api/content/faq`)
     .then((res) => res.json())
     .then(({ data }) => data);
 
