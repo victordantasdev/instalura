@@ -7,7 +7,6 @@ import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
 function HomeScreen() {
   const websitePageContext = useContext(WebsitePageContext);
-
   return (
     <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
       <Grid.Row>
