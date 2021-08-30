@@ -71,7 +71,9 @@ export default function WebsitePageWrapper({
 }
 
 WebsitePageWrapper.defaultProps = {
-  seoProps: {},
+  seoProps: {
+    image: '/images/home.png',
+  },
   menuProps: {
     display: true,
   },
