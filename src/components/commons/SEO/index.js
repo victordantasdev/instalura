@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-export default function SEO({
-  headTitle, description, image, urlBase,
-}) {
+export default function SEO({ headTitle }) {
   const hasTitle = Boolean(headTitle);
   const baseTitle = 'Instalura';
   const title = hasTitle ? (`${headTitle} | ${baseTitle}`) : baseTitle;
+  const image = 'https://i.postimg.cc/sXt0R71S/home.png';
+  const urlBase = 'https://instalura-victordantasdev.vercel.app/';
+  const description = 'Clone do instagram criado durante o bootcamp de Front-End avançado da Alura.';
 
   return (
     <Head>
@@ -36,14 +37,8 @@ export default function SEO({
 
 SEO.propTypes = {
   headTitle: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  urlBase: PropTypes.string,
 };
 
 SEO.defaultProps = {
   headTitle: '',
-  description: '',
-  image: '',
-  urlBase: '',
 };
