@@ -9,10 +9,10 @@ const InputWrapper = styled.div`
 
 const Input = styled(Text)`
   width: 100%;
-  border: 1px solid ${({ theme: { colorTheme } }) => colorTheme.tertiary.color};
+  border: 1px solid ${({ theme }) => theme.tertiary.color};
   padding: 12px 16px;
   outline: 0;
-  border-radius: ${({ theme: { theme } }) => theme.borderRadius};
+  border-radius: ${({ theme }) => theme.borderRadius};
 `;
 
 Input.defaultProps = {
@@ -21,11 +21,22 @@ Input.defaultProps = {
 };
 
 export default function TextField({
-  placeholder, name, onChange, value,
+  placeholder,
+  name,
+  onChange,
+  value,
+  ...props
 }) {
   return (
     <InputWrapper>
-      <Input type="text" placeholder={placeholder} name={name} onChange={onChange} value={value} />
+      <Input
+        type="text"
+        placeholder={placeholder}
+        name={name}
+        onChange={onChange}
+        value={value}
+        {...props}
+      />
     </InputWrapper>
   );
 }

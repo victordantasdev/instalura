@@ -12,9 +12,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: ${({ theme }) => theme.theme.fontFamily};
-    background-color: ${({ theme }) => theme.colorTheme.background.color};
-    color: ${({ theme }) => theme.colorTheme.background.contrastText};
+    font-family: ${({ theme }) => theme.fontFamily};
+    background-color: ${({ theme }) => theme.background.color};
+    color: ${({ theme }) => theme.background.contrastText};
     transition: all 0.2s ease-in-out;
   }
   

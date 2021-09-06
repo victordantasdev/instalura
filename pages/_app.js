@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
-import theme, { colors } from '../src/theme';
-import GlobalStyle from '../src/theme/GlobalStyle';
+import { light, dark } from '../src/theme/colorTheme';
 
 // eslint-disable-next-line react/prop-types
 export default function App({ Component, pageProps }) {
-  const [colorTheme, setColorTheme] = useState(colors.modes.dark);
+  const [colorTheme, setColorTheme] = useState(dark);
 
   const toggleTheme = () => {
     setColorTheme(
       colorTheme.title === 'light'
-        ? colors.modes.dark
-        : colors.modes.light,
+        ? dark
+        : light,
     );
   };
 
@@ -29,8 +28,7 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/images/instalura_icon.ico" />
       </Head>
 
-      <ThemeProvider theme={{ theme, colorTheme }}>
-        <GlobalStyle />
+      <ThemeProvider theme={colorTheme}>
         <Component toggleTheme={toggleTheme} {...pageProps} />
       </ThemeProvider>
     </>

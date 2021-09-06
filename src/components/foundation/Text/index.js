@@ -3,23 +3,23 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import propToStyle from '../../../theme/utils/propToStyle';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
-import { Link } from '../../commons/Link';
+import Link from '../../commons/Link';
 
 export const TextStyleVariantsMap = {
   smallestException: css`
-    font-size: ${({ theme: { theme } }) => theme.typographyVariants.smallestException.fontSize};
-    font-weight: ${({ theme: { theme } }) => theme.typographyVariants.smallestException.fontWeight};
-    line-height: ${({ theme: { theme } }) => theme.typographyVariants.smallestException.fontHeight};
+    font-size: ${({ theme }) => theme.typographyVariants.smallestException.fontSize};
+    font-weight: ${({ theme }) => theme.typographyVariants.smallestException.fontWeight};
+    line-height: ${({ theme }) => theme.typographyVariants.smallestException.fontHeight};
   `,
 
   paragraph1: css`
-    font-size: ${({ theme: { theme } }) => theme.typographyVariants.paragraph1.fontSize};
-    font-weight: ${({ theme: { theme } }) => theme.typographyVariants.paragraph1.fontWeight};
-    line-height: ${({ theme: { theme } }) => theme.typographyVariants.paragraph1.fontHeight};
+    font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontSize};
+    font-weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontWeight};
+    line-height: ${({ theme }) => theme.typographyVariants.paragraph1.fontHeight};
   `,
 
   title: css`
-    ${({ theme: { theme } }) => css`
+    ${({ theme }) => css`
       font-size: ${theme.typographyVariants.titleXS.fontSize};
       font-weight: ${theme.typographyVariants.titleXS.fontWeight};
       line-height: ${theme.typographyVariants.titleXS.lineHeight};
@@ -27,7 +27,7 @@ export const TextStyleVariantsMap = {
 
     ${breakpointsMedia({
     md: css`
-      ${({ theme: { theme } }) => css`
+      ${({ theme }) => css`
         font-size: ${theme.typographyVariants.title.fontSize};
         font-weight: ${theme.typographyVariants.title.fontWeight};
         line-height: ${theme.typographyVariants.title.lineHeight};

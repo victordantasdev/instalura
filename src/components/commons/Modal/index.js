@@ -8,6 +8,7 @@ const ModalWrapper = styled.div`
   flex-direction: column;
   align-items: stretch;
   background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
   position: fixed;
   top: 0;
   left: 0;

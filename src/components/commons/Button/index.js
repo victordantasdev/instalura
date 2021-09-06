@@ -5,16 +5,16 @@ import PropTypes from 'prop-types';
 import { TextStyleVariantsMap } from '../../foundation/Text';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 import propToStyle from '../../../theme/utils/propToStyle';
-import { Link } from '../Link';
+import Link from '../Link';
 
 const ButtonGhost = css`
-  color: ${({ theme, variant }) => get(theme, `colorTheme.${variant}.color`)};
+  color: ${({ theme, variant }) => get(theme, `${variant}.color`)};
   background: transparent;
 `;
 
 const ButtonDefault = css`
-  background-color: ${({ theme, variant }) => get(theme, `colorTheme.${variant}.color`)};
-  color: ${({ theme, variant }) => get(theme, `colorTheme.${variant}.contrastText`)};
+  background-color: ${({ theme, variant }) => get(theme, `${variant}.color`)};
+  color: ${({ theme, variant }) => get(theme, `${variant}.contrastText`)};
 `;
 
 const ButtonWrapper = styled.button`
