@@ -27,6 +27,7 @@ describe('/pages/app/login/', () => {
 
         cy.getCookie('APP_TOKEN')
           .should('exist')
+          // Token do cookie é igual o token do server?
           .should('have.property', 'value', token);
       });
   });
