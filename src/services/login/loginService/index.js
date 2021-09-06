@@ -1,3 +1,5 @@
+import { setCookie, destroyCookie } from 'nookies';
+
 async function HttpClient(url, { headers, body, ...options }) {
   return fetch(url, {
     headers: {
@@ -25,7 +27,21 @@ export const loginService = {
         password,
       },
     })
-      .then((data) => data)
+      .then((respostaConvertida) => {
+        const { token } = respostaConvertida.data;
+        const DAY_IN_SECONDS = 86400;
+
+        setCookie(null, 'APP_TOKEN', token, {
+          path: '/',
+          maxAge: DAY_IN_SECONDS * 7,
+        });
+
+        return { token };
+      })
       .catch((error) => error);
+  },
+
+  logout() {
+    destroyCookie(null, 'APP_TOKEN');
   },
 };
