@@ -22,8 +22,8 @@ const Box = styled.div`
   ${propToStyle('marginRight')}
   ${({ theme, borderRadiusTheme }) => borderRadiusTheme && `border-radius: ${theme.borderRadius}`};
 
-  color: ${({ theme, variant }) => get(theme, `colorTheme.${variant}.contrastText`)};
-  background-color: ${({ theme, variant }) => get(theme, `colorTheme.${variant}.color`)};
+  color: ${({ theme, variant }) => get(theme, `${variant}.contrastText`)};
+  background-color: ${({ theme, variant }) => get(theme, `${variant}.color`)};
 `;
 
 export default Box;

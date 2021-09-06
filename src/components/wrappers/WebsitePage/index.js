@@ -19,7 +19,7 @@ export default function WebsitePageWrapper({
   toggleTheme,
 }) {
   const [isModalOpen, setModalState] = useState(false);
-  const { colorTheme } = useContext(ThemeContext);
+  const theme = useContext(ThemeContext);
 
   return (
     <WebsitePageContext.Provider
@@ -39,7 +39,7 @@ export default function WebsitePageWrapper({
         flexWrap="wrap"
         justifyContent="space-between"
         backgroundImage={
-          colorTheme.title === 'light'
+          theme.title === 'light'
             ? 'url(/images/bubbles.svg)'
             : 'url(/images/bubbles_dark.svg)'
         }

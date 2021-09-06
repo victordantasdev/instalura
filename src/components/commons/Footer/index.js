@@ -14,7 +14,7 @@ const FooterWrapper = styled.footer`
     margin-right: 23px;
   }
   a {
-    color: ${({ theme }) => theme.colorTheme.primary.color};
+    color: ${({ theme }) => theme.primary.color};
     text-decoration: none;
     transition: 0.3s;
     &:hover,

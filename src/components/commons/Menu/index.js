@@ -27,12 +27,12 @@ const links = [
 
 // eslint-disable-next-line react/prop-types
 export default function Menu({ onCadastrarClick, toggleTheme }) {
-  const { colorTheme } = useContext(ThemeContext);
+  const theme = useContext(ThemeContext);
 
   return (
     <MenuWrapper>
       <MenuWrapper.LeftSide>
-        {colorTheme.title === 'light' ? <LogoLight /> : <LogoDark />}
+        {theme.title === 'light' ? <LogoLight /> : <LogoDark />}
       </MenuWrapper.LeftSide>
       <MenuWrapper.CentralSide>
         {links.map((link) => (
@@ -46,11 +46,11 @@ export default function Menu({ onCadastrarClick, toggleTheme }) {
       <MenuWrapper.RightSide>
         <Switch
           onChange={toggleTheme}
-          checked={colorTheme.title === 'dark'}
+          checked={theme.title === 'dark'}
           checkedIcon={<Sun />}
           uncheckedIcon={<Moon />}
-          onColor={colorTheme.primary.color}
-          offColor={colorTheme.primary.color}
+          onColor={theme.primary.color}
+          offColor={theme.primary.color}
         />
 
         <Button ghost variant="secondary" href="/app/login">Entrar</Button>

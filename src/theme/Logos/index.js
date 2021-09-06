@@ -1,10 +1,24 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-export function LogoDark() {
+const sizes = {
+  small: {
+    width: 96,
+    height: 24,
+  },
+  large: {
+    width: 186,
+    height: 46,
+  },
+};
+
+export function LogoDark({ size }) {
+  const { width, height } = sizes[size] || sizes.small;
+
   return (
     <svg
-      width="96"
-      height="24"
+      width={width}
+      height={height}
       viewBox="0 0 131 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -23,11 +37,13 @@ export function LogoDark() {
   );
 }
 
-export function LogoLight() {
+export function LogoLight({ size }) {
+  const { width, height } = sizes[size] || sizes.small;
+
   return (
     <svg
-      width="96"
-      height="24"
+      width={width}
+      height={height}
       viewBox="0 0 131 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

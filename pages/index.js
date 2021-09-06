@@ -60,7 +60,7 @@ function HomeScreen() {
           <img
             alt="Imagem de celular com páginas internas do projeto com o perfil do Cage"
             style={{ display: 'block', margin: 'auto' }}
-            src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"
+            src="/images/phones-light.png"
           />
         </Grid.Col>
       </Grid.Row>
