@@ -1,34 +1,31 @@
 /// <reference types="cypress" />
 
+import LoginScreenPageObject from '../../../../src/components/screen/app/LoginScreen/LoginScreenPageObject';
+
 describe('/pages/app/login/', () => {
-  // it === test
-  it('preencha os campos e vá para a página /app/profile', () => {
-    cy.intercept('https://instalura-api-git-master-omariosouto.vercel.app/api/login')
-      .as('userLogin');
+  describe('when fill and submit a form login request', () => {
+    it('go to the profile page', () => {
+      // Pré Teste
+      cy.intercept('https://instalura-api-git-master-omariosouto.vercel.app/api/login')
+        .as('userLogin');
 
-    cy.visit('/app/login/');
+      // Cenário
+      const loginScreen = new LoginScreenPageObject(cy);
+      loginScreen
+        .fillLoginForm({ user: 'victordantasdev', password: 'senhasegura' })
+        .submitLoginForm();
 
-    // preencher o input usuario
-    cy.get('#formCadastro input[name="usuario"]').type('victordantasdev');
+      // Asserções
+      cy.url().should('include', '/app/profile');
 
-    // preencher o input senha
-    cy.get('#formCadastro input[name="senha"]').type('senhasegura');
+      cy.wait('@userLogin')
+        .then((intercept) => {
+          const { token } = intercept.response.body.data;
 
-    // clicar no botão submit
-    cy.get('#formCadastro button[type="submit"]').click();
-
-    // o que esperamos? ir para "/app/profile"
-    cy.url().should('include', '/app/profile');
-
-    // temos o token?
-    cy.wait('@userLogin')
-      .then((intercept) => {
-        const { token } = intercept.response.body.data;
-
-        cy.getCookie('APP_TOKEN')
-          .should('exist')
-          // Token do cookie é igual o token do server?
-          .should('have.property', 'value', token);
-      });
+          cy.getCookie('APP_TOKEN')
+            .should('exist')
+            .should('have.property', 'value', token);
+        });
+    });
   });
 });
