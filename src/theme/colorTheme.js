@@ -26,12 +26,12 @@ export const light = {
   },
 
   error: {
-    color: '#ED4032',
+    main: '#ED4032',
 
   },
 
   warning: {
-    color: '#F77228',
+    main: '#F77228',
   },
 };
 
@@ -63,12 +63,12 @@ export const dark = {
   },
 
   error: {
-    color: '#EB5C50',
+    main: '#EB5C50',
 
   },
 
   warning: {
-    color: '#FB9E6B',
+    main: '#FB9E6B',
   },
 
 };
