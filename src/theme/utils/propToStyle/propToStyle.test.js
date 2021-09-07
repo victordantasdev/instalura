@@ -36,7 +36,7 @@ describe('propToStyle()', () => {
     test('renders two or more breakpoint resolution', () => {
       const propToStyleResult = propToStyle('textAlign');
 
-      // <Text textAlign={1} />
+      // <Text textAlign: { xs: 'center', md: 'right' } />
       const componentProps = { textAlign: { xs: 'center', md: 'right' } }; // string
       const styleResult = propToStyleResult(componentProps);
 

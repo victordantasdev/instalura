@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../../../theme';
-import GlobalStyle from '../../../../theme/GlobalStyle';
 
-export default function WebsiteGlobalProvider({ children }) {
+export default function WebsiteGlobalProvider({ children, theme }) {
+  // const theme = useContext(ThemeContext);
+
   return (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
         {children}
       </ThemeProvider>
     </>
@@ -17,4 +16,6 @@ export default function WebsiteGlobalProvider({ children }) {
 
 WebsiteGlobalProvider.propTypes = {
   children: PropTypes.node.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  theme: PropTypes.object.isRequired,
 };
