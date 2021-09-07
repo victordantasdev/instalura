@@ -27,10 +27,17 @@ export default function LoginForm() {
   const form = useForm({
     initialValues,
     onSubmit: (values) => {
+      form.setIsFormDisabled(true);
       loginService.login({
         username: values.usuario,
         password: values.senha,
-      }).then(() => { router.push('/app/profile'); });
+      })
+        .then(() => { router.push('/app/profile'); })
+        // eslint-disable-next-line no-console
+        .catch((err) => console.error(err))
+        .finally(() => {
+          form.setIsFormDisabled(false);
+        });
     },
     async validateSchema(values) {
       return loginSchema.validate(values, {
