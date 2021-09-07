@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { light, dark } from '../src/theme/colorTheme';
+import GlobalStyle from '../src/theme/GlobalStyle';
+import theme from '../src/theme';
 
 // eslint-disable-next-line react/prop-types
 export default function App({ Component, pageProps }) {
@@ -13,6 +15,11 @@ export default function App({ Component, pageProps }) {
         ? dark
         : light,
     );
+  };
+
+  const allThemes = {
+    ...colorTheme,
+    ...theme,
   };
 
   return (
@@ -28,7 +35,8 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/images/instalura_icon.ico" />
       </Head>
 
-      <ThemeProvider theme={colorTheme}>
+      <ThemeProvider theme={allThemes}>
+        <GlobalStyle />
         <Component toggleTheme={toggleTheme} {...pageProps} />
       </ThemeProvider>
     </>

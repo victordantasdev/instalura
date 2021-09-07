@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import WebsitePageWrapper from '..';
+import theme from '../../../../theme';
 import WebsiteGlobalProvider from '../provider';
 
 export default function websitePageHOC(
@@ -9,7 +10,7 @@ export default function websitePageHOC(
   { pageWrapperProps } = { pageWrapperProps: {} },
 ) {
   return (props) => (
-    <WebsiteGlobalProvider>
+    <WebsiteGlobalProvider theme={theme}>
       <WebsitePageWrapper
         toggleTheme={props.toggleTheme}
         {...pageWrapperProps}
