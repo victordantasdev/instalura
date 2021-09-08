@@ -1,5 +1,17 @@
 import { useEffect, useState } from 'react';
 
+function formatErrors(yupErrors = []) {
+  return yupErrors.reduce((errorObjAcc, currentError) => {
+    const fieldName = currentError.path;
+    const errorMessage = currentError.message;
+
+    return {
+      ...errorObjAcc,
+      [fieldName]: errorMessage,
+    };
+  }, {});
+}
+
 export function useForm({
   initialValues,
   onSubmit,
@@ -16,15 +28,7 @@ export function useForm({
       setErrors({});
       setIsFormDisabled(false);
     } catch (err) {
-      const formatedErrors = err.inner.reduce((errorObjAcc, currentError) => {
-        const fieldName = currentError.path;
-        const errorMessage = currentError.message;
-
-        return {
-          ...errorObjAcc,
-          [fieldName]: errorMessage,
-        };
-      }, {});
+      const formatedErrors = formatErrors(err.inner);
 
       setErrors(formatedErrors);
       setIsFormDisabled(true);
