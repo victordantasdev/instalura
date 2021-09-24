@@ -15,6 +15,7 @@ export default function websitePageHOC(
         toggleTheme={props.toggleTheme}
         {...pageWrapperProps}
         {...props.pageWrapperProps}
+        messages={props.messages}
       >
         <PageComponent {...props} />
       </WebsitePageWrapper>
