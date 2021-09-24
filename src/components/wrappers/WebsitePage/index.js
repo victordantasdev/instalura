@@ -1,21 +1,22 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
+import { get } from 'lodash';
 import Footer from '../../commons/Footer';
 import Menu from '../../commons/Menu';
 import Modal from '../../commons/Modal';
 import Box from '../../foundation/layout/Box';
 import FormCadastro from '../../patterns/FormCadastro';
 import SEO from '../../commons/SEO';
+import { WebsitePageContext } from './context';
 
-export const WebsitePageContext = createContext({
-  toggleModalCadastro: () => {},
-});
+export { WebsitePageContext } from './context';
 
 export default function WebsitePageWrapper({
   children,
   seoProps,
   menuProps,
+  messages,
   toggleTheme,
 }) {
   const [isModalOpen, setModalState] = useState(false);
@@ -27,6 +28,8 @@ export default function WebsitePageWrapper({
         toggleModalCadastro: () => {
           setModalState(!isModalOpen);
         },
+
+        getCMSContent: (cmsKey) => get(messages, cmsKey),
       }}
     >
       <SEO
@@ -75,6 +78,7 @@ WebsitePageWrapper.defaultProps = {
   menuProps: {
     display: true,
   },
+  messages: {},
 };
 
 WebsitePageWrapper.propTypes = {
@@ -86,4 +90,6 @@ WebsitePageWrapper.propTypes = {
   }),
   children: PropTypes.node.isRequired,
   toggleTheme: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  messages: PropTypes.object,
 };
