@@ -17,7 +17,6 @@ export const userService = {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response);
 
       return {
         user: { totalLikes: 100 },
