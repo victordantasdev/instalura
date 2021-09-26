@@ -1,84 +1,55 @@
-# Example app with styled-components
+# <img width="20" height="20" src="https://i.postimg.cc/MZddxKkV/alura-Iconalura-Icon.png" alt="Icone Instalura"/> Instalura
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/vercel/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+O Instalura é um clone do instagram criado durante o Bootcamp de Frontend Avançado da Alura usando o que há de mais moderno no desenvolvimento web como: 
+- [Next.js](https://nextjs.org/) para a criação dos componentes visuais, lógica da aplicação e regras de negócio. 
+- [Styled-components](https://styled-components.com/) para estilização dos componentes.
+- [Jest](https://jestjs.io/) para os testes unitários.
+- [Cypress](https://www.cypress.io/) para os testes de integração.
+- [Dato CMS](https://www.datocms.com/) para gerenciar o conteúdo.
+- [Github Actions](https://github.com/features/actions) para gerenciar o CI.
+- [Vercel](https://vercel.com/) para gerenciar o CD.
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs/advanced-features/custom-app) component.
+Você pode conferir o projeto clicando <a href="https://instalura-victordantasdev.vercel.app/" target="_blank" rel="noopener noreferrer">nesse link</a>.
 
-## Preview
+## 📺 Telas
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+- Home
+![D-Home](https://user-images.githubusercontent.com/64330605/134827641-49ed567e-5348-4ff1-b01d-4e91b59cf013.png)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-styled-components)
+- Modal de cadastro
+![D-Modal](https://user-images.githubusercontent.com/64330605/134827645-d839dd08-9b24-4f62-b3d2-c2d504221f24.png)
 
-## Deploy your own
+- Tela de login
+![D-Login](https://user-images.githubusercontent.com/64330605/134827643-5af7e52b-d5e2-4807-ac6a-f2d37d4fa75d.png)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+- Tela de FAQ
+![D-Faq](https://user-images.githubusercontent.com/64330605/134827637-3473bd27-120a-480f-b005-400953f284cc.png)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
+- Tela de Sobre
+![D-Sobre](https://user-images.githubusercontent.com/64330605/134827649-124ca0e7-2d86-4e8b-b520-6b4723c6f149.png)
 
-## How to use
+## 📦 Módulos do curso
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+  - [x] Módulo 01: JAMStack e layout com React
+  - [x] Módulo 02: State e Forms + boas práticas de Git e GitHub
+  - [x] Módulo 03: Se aprofundando no NextJS
+  - [x] Módulo 04: Testes com Cypress, Jest e React Testing Library
+  - [x] Módulo 05: Área autenticada e gerenciador de conteúdo (CMS)
+  - [ ] Módulo 06: Storybook + TypeScript
 
-```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
-```
+## 👩‍🏫/👨‍🏫 Instrutoras e Instrutores
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-### Try it on CodeSandbox
-
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
-
-### Notes
-
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
-
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
-
-**components/StyledLink.js**
-
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
-
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
-
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    color: #40a9ff;
-  }
-
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
-```
-
-**pages/index.js**
-
-```javascript
-import StyledLink from '../components/StyledLink'
-
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
-```
-
-</details>
+<table>
+  <tr>
+    <td align="center"><img width="64" height="64" src="https://github.com/JulianaAmoasei.png" alt="JulianaAmoasei" /></td>
+    <td align="center"><img width="64" height="64" src="https://github.com/juunegreiros.png" alt="juunegreiros" /></td>
+    <td align="center"><img width="64" height="64" src="https://github.com/omariosouto.png" alt="omariosouto" /></td>
+    <td align="center"><img width="64" height="64" src="https://github.com/alura.png" alt="alura" /></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/JulianaAmoasei" target="_blank" rel="noopener noreferrer">Juliana Amoasei</a></td>
+    <td><a href="https://github.com/juunegreiros" target="_blank" rel="noopener noreferrer">Juliana Negreiros</a></td>
+    <td><a href="https://github.com/omariosouto" target="_blank" rel="noopener noreferrer">Mário Souto</a></td>
+    <td><a href="https://github.com/alura" target="_blank" rel="noopener noreferrer">Alura</a></td>
+  </tr>
+</table>
