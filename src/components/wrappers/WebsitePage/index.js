@@ -9,6 +9,7 @@ import Box from '../../foundation/layout/Box';
 import FormCadastro from '../../patterns/FormCadastro';
 import SEO from '../../commons/SEO';
 import { WebsitePageContext } from './context';
+import MenuLogado from '../../commons/MenuLogado';
 
 export { WebsitePageContext } from './context';
 
@@ -58,8 +59,15 @@ export default function WebsitePageWrapper({
           )}
         </Modal>
 
-        {menuProps.display && (
+        {menuProps.display && !menuProps.logado && (
           <Menu
+            toggleTheme={toggleTheme}
+            onCadastrarClick={() => setModalState(true)}
+          />
+        )}
+
+        {menuProps.display && menuProps.logado && (
+          <MenuLogado
             toggleTheme={toggleTheme}
             onCadastrarClick={() => setModalState(true)}
           />
@@ -77,6 +85,7 @@ WebsitePageWrapper.defaultProps = {
   seoProps: {},
   menuProps: {
     display: true,
+    logado: false,
   },
   messages: {},
 };
@@ -87,6 +96,7 @@ WebsitePageWrapper.propTypes = {
   }),
   menuProps: PropTypes.shape({
     display: PropTypes.bool,
+    logado: PropTypes.bool,
   }),
   children: PropTypes.node.isRequired,
   toggleTheme: PropTypes.func.isRequired,

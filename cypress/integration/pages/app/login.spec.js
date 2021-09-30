@@ -22,7 +22,7 @@ describe('/pages/app/login/', () => {
         .then((intercept) => {
           const { token } = intercept.response.body.data;
 
-          cy.getCookie('APP_TOKEN')
+          cy.getCookie('LOGIN_COOKIE_APP_TOKEN')
             .should('exist')
             .should('have.property', 'value', token);
         });
