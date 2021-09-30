@@ -1,8 +1,9 @@
 import React from 'react';
+import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 import { authService } from '../../src/services/auth/authService';
 import { useUserService } from '../../src/services/hooks/useUserService';
 
-export default function ProfilePage() {
+function ProfilePage() {
   const dados = useUserService.getProfilePage();
 
   return (
@@ -19,6 +20,18 @@ export default function ProfilePage() {
     </div>
   );
 }
+
+export default websitePageHOC(ProfilePage, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Profile',
+    },
+    menuProps: {
+      display: true,
+      logado: true,
+    },
+  },
+});
 
 export async function getServerSideProps(ctx) {
   const auth = authService(ctx);
