@@ -12,7 +12,7 @@ describe('/pages/app/login/', () => {
       // Cenário
       const loginScreen = new LoginScreenPageObject(cy);
       loginScreen
-        .fillLoginForm({ user: 'victordantasdev', password: 'senhasegura' })
+        .fillLoginForm({ user: 'omariosouto', password: 'senhasegura' })
         .submitLoginForm();
 
       // Asserções
