@@ -15,7 +15,8 @@ Sobre.defaultProps = {
 };
 
 export async function getStaticProps({ preview }) {
-  const messages = await getContent({ preview });
+  const datoCMSToken = process.env.DATO_CMS_TOKEN;
+  const messages = await getContent({ preview, datoCMSToken });
 
   return {
     props: {
@@ -24,4 +25,10 @@ export async function getStaticProps({ preview }) {
   };
 }
 
-export default websitePageHOC(Sobre);
+export default websitePageHOC(Sobre, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Sobre',
+    },
+  },
+});
