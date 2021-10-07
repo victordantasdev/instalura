@@ -60,8 +60,10 @@ function HomeScreen() {
         <Grid.Col value={{ xs: 12, md: 6 }}>
           <Image
             alt="Imagem de celular com páginas internas do projeto com o perfil do Cage"
-            style={{ display: 'block', margin: 'auto' }}
+            // style={{ display: 'block', margin: 'auto' }}
             src="/images/phones-light.png"
+            width={386}
+            height={575}
           />
         </Grid.Col>
       </Grid.Row>

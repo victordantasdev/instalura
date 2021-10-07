@@ -71,9 +71,10 @@ function LoginScreen() {
             justifyContent="center"
           >
             <Image
-              align="center"
               src="/images/phones-light.png"
               alt="Telefones mostrando as páginas internas do app"
+              width={386}
+              height={575}
             />
           </Box>
         </Grid.Col>
