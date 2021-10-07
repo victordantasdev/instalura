@@ -8,6 +8,7 @@ module.exports = {
   extends: [
     'plugin:cypress/recommended',
     'plugin:react/recommended',
+    'plugin:@next/next/recommended',
     'airbnb',
   ],
   parserOptions: {
