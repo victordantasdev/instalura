@@ -15,8 +15,7 @@ Sobre.defaultProps = {
 };
 
 export async function getStaticProps({ preview }) {
-  const datoCMSToken = process.env.DATO_CMS_TOKEN;
-  const messages = await getContent({ preview, datoCMSToken });
+  const messages = await getContent({ preview });
 
   return {
     props: {
