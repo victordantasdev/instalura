@@ -23,17 +23,17 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: '14.17.5'
+          node-version: '14.18.0'
       ##################################
       ##################################
 
       # Runs a single command using the runners shell
       - name: Node Version
         run: node -v
-      - name: Install dependencies
-        run: yarn install
+      - name: Dependency Install
+        run: npm install
       - name: Run Linter
-        run: yarn lint
+        run: npm run lint
 
   unit_tests:
     name: Unit Tests
@@ -43,7 +43,7 @@ jobs:
       - uses: actions/checkout@v2 ## Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/setup-node@v1
         with:
-          node-version: '14.17.5'
+          node-version: '14.18.0'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -59,7 +59,6 @@ jobs:
 
       - name: Run Unit Tests
         run: yarn test
-  
   integration_tests:
     name: Integration Tests
     runs-on: ubuntu-latest # The type of runner that the job will run on
@@ -68,7 +67,7 @@ jobs:
       - uses: actions/checkout@v2 ## Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/setup-node@v1
         with:
-          node-version: '14.17.5'
+          node-version: '14.18.0'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -85,4 +84,4 @@ jobs:
       - name: Run Integration Tests
         env:
           DATO_CMS_TOKEN: ${{ secrets.DATO_CMS_TOKEN }}
-        run: yarn test:integration:build
+        run: yarn test:integration:build 
