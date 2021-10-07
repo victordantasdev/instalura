@@ -6,7 +6,10 @@ import Switch from 'react-switch';
 import MenuWrapper from './styles/MenuWrapper';
 import { LogoDark, LogoLight } from '../../../theme/Logos';
 import { Moon, Sun } from '../../../../public/icons/SwichIcons';
-import SearchBar from './styles/SearchBar';
+import { SearchIcon } from '../../../../public/icons/SearchIcon';
+import { SearchBar, Input } from './styles/SearchBar';
+import { HeartIcon, HomeIcon, PostIcon } from '../../../../public/icons/MenuLogadoIcons';
+import { MenuItems, ProfilePicture } from './styles/MenuItems';
 
 export default function MenuLogado({ toggleTheme }) {
   const theme = useContext(ThemeContext);
@@ -16,25 +19,31 @@ export default function MenuLogado({ toggleTheme }) {
       <MenuWrapper.LeftSide>
         {theme.title === 'light' ? <LogoLight /> : <LogoDark />}
       </MenuWrapper.LeftSide>
-      {/* <MenuWrapper.CentralSide>
-        {links.map((link) => (
-          <li key={link.text}>
-            <Text tag="a" variant="smallestException" href={link.url}>
-              {link.text}
-            </Text>
-          </li>
-        ))}
-      </MenuWrapper.CentralSide> */}
       <MenuWrapper.RightSide>
-        <Switch
-          onChange={toggleTheme}
-          checked={theme.title === 'dark'}
-          checkedIcon={<Sun />}
-          uncheckedIcon={<Moon />}
-          onColor={theme.primary.color}
-          offColor={theme.primary.color}
-        />
-        <SearchBar type="text" placeholder="Pesquisar" />
+        <SearchBar>
+          <SearchIcon color={theme.tertiary.color} />
+          <Input type="text" placeholder="Pesquisar" />
+        </SearchBar>
+
+        <MenuItems>
+          <Switch
+            onChange={toggleTheme}
+            checked={theme.title === 'dark'}
+            checkedIcon={<Sun />}
+            uncheckedIcon={<Moon />}
+            onColor={theme.primary.color}
+            offColor={theme.primary.color}
+          />
+          <PostIcon color={theme.secondary.color} />
+          <HomeIcon color={theme.primary.color} />
+          <HeartIcon color={theme.background.contrastText} />
+          <ProfilePicture
+            alt="Imagem de perfil"
+            src="https://github.com/omariosouto.png"
+            width={32}
+            height={32}
+          />
+        </MenuItems>
       </MenuWrapper.RightSide>
     </MenuWrapper>
   );

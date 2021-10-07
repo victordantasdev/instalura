@@ -5,6 +5,7 @@ module.exports = {
   images: {
     domains: [
       'www.alura.com.br',
+      'github.com',
     ],
   },
   async redirects() {
