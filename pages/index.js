@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Image from 'next/image';
 import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
 import Grid from '../src/components/foundation/layout/Grid';
@@ -57,10 +58,12 @@ function HomeScreen() {
         </Grid.Col>
 
         <Grid.Col value={{ xs: 12, md: 6 }}>
-          <img
+          <Image
             alt="Imagem de celular com páginas internas do projeto com o perfil do Cage"
-            style={{ display: 'block', margin: 'auto' }}
+            // style={{ display: 'block', margin: 'auto' }}
             src="/images/phones-light.png"
+            width={386}
+            height={575}
           />
         </Grid.Col>
       </Grid.Row>

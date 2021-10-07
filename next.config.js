@@ -2,6 +2,11 @@ const redirects = require('./config/redirects');
 
 module.exports = {
   trailingSlash: true,
+  images: {
+    domains: [
+      'www.alura.com.br',
+    ],
+  },
   async redirects() {
     return redirects;
   },

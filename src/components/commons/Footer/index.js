@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 const FooterWrapper = styled.footer`
@@ -28,10 +29,12 @@ export default function Footer(props) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <FooterWrapper {...props}>
-      <a href="https://www.alura.com.br/">
-        <img
+      <a href="https://www.alura.com.br/" style={{ marginRight: '23px' }}>
+        <Image
           src="https://www.alura.com.br/assets/img/alura-logo.svg"
           alt="Logo Alura"
+          width={58}
+          height={24}
         />
       </a>
       <p>
