@@ -1,4 +1,4 @@
-export default class LoginScreenPageObject {
+export default class LoginScreen {
   constructor(cy) {
     this.cy = cy;
 
