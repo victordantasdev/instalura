@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Image from 'next/image';
 import { ThemeContext } from 'styled-components';
 import Link from '../../src/components/commons/Link';
 import Box from '../../src/components/foundation/layout/Box';
@@ -69,7 +70,7 @@ function LoginScreen() {
             display="flex"
             justifyContent="center"
           >
-            <img
+            <Image
               align="center"
               src="/images/phones-light.png"
               alt="Telefones mostrando as páginas internas do app"

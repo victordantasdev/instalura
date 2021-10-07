@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 import { authService } from '../../src/services/auth/authService';
 import { useUserService } from '../../src/services/hooks/useUserService';
@@ -9,7 +10,7 @@ function ProfilePage() {
   return (
     <div>
       Página de Profile!
-      <img src="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif" alt="Nicolas Cage" />
+      <Image src="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif" alt="Nicolas Cage" />
       {/* <pre>
         {JSON.stringify(props, null, 2)}
       </pre> */}
