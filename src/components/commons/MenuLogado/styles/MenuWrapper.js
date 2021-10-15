@@ -9,8 +9,10 @@ const MenuWrapper = styled.nav`
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 18px;
-  padding-left: 28px;
-  padding-right: 28px;
+  margin-left: 28px;
+  margin-right: 28px;
+  width: 100vw;
+  
   ${breakpointsMedia({
     md: css`
       justify-content: flex-start;
@@ -20,6 +22,7 @@ const MenuWrapper = styled.nav`
       width: 100%;
       padding: 32px 16px 0 16px;
       max-width: 768px;
+      border-bottom: 1px solid ${({ theme }) => theme.tertiary.color};
     `,
     lg: css`
       max-width: 1160px;
