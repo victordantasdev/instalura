@@ -33,7 +33,7 @@
     "react-switch": "^6.0.0",
     "styled-components": "^5.3.1",
     "styled-normalize": "^8.0.7",
-    "yup": "^0.32.9"
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
