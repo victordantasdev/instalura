@@ -19,7 +19,7 @@
     "@crello/react-lottie": "^0.0.11",
     "@types/jest": "^27.4.1",
     "eslint-plugin-jest": "^26.2.2",
-    "framer-motion": "^6.2.8",
+    "framer-motion": "^6.3.16",
     "graphql": "^16.5.0",
     "graphql-request": "^4.0.0",
     "jest": "^27.5.1",
